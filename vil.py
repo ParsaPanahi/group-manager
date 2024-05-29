@@ -1,14 +1,14 @@
+import sys
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 from telebot import types
-import sys
-from kral import register_commands  # ایمپورت دستورات از فایل kral.py
+from kral import register_commands
 
 if len(sys.argv) != 2:
-    print("Usage: python3 vil.py <API_TOKEN>")
+    print("Usage: python3 vil.py <bot_token>")
     sys.exit(1)
 
-API_TOKEN = sys.argv[1]
+API_TOKEN = sys.argv[1]  # توکن API
 
 bot = telebot.TeleBot(API_TOKEN)
 
@@ -269,7 +269,9 @@ def user_info(message):
         bot.send_photo(message.chat.id, profile_photo, caption=user_info)
     else:
         bot.send_message(message.chat.id, user_info)
+        
+# ...
 
-# شروع ربات
 if __name__ == "__main__":
     bot.polling()
+        
